@@ -12,6 +12,7 @@ class triangulo {
         this.lado_A = lado_A
         this.lado_B = lado_B
         this.altura = altura
+        this.calcularAltura = () => this.altura = ((lado_A ** 2) + (lado_B ** 2))
         this.perimetro = (Number(lado_A) + Number(lado_B) + Number(base))
         this.area = (base * altura) / 2
     }
@@ -41,11 +42,12 @@ function crear_figura(figura, accion){
             break;
 
         case 'triangulo':
+            checkbox = document.getElementById("isosceles")
             var lado1 = document.getElementById("lado1_medida").value
             var lado2 = document.getElementById("lado2_medida").value
-            var lado3 = document.getElementById("lado3_medida").value
-            var altura = document.getElementById("altura_medida").value
-            var result = new triangulo(lado1, lado2, lado3, altura)
+            var base = document.getElementById("base").value
+            checkbox.checked == false ? altura = document.getElementById("altura_medida").value : altura = ((lado1 ** 2) + (lado2 ** 2))
+            var result = new triangulo(lado1, lado2, base, altura)
             break;
 
         case 'circulo':
@@ -61,8 +63,7 @@ function isosceles(){
     checkbox = document.getElementById("isosceles")
     altura = document.getElementById("altura_medida")
     label_altura = document.getElementById("altura")
-    
     checkbox.checked == true ? (altura.hidden = true, label_altura.hidden = true): (altura.hidden = false, label_altura.hidden = false)
-    // alert(checkbox.value)
-
 }
+
+
